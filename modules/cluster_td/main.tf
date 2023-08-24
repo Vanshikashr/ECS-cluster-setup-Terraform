@@ -16,8 +16,8 @@ resource "aws_ecs_task_definition" "my_task_definition" {
 
   container_definitions = jsonencode([
     {
-      name  = "nginx",
-      image = "nginx:latest",
+      name  = "drupal",
+      image = "drupal:latest",
       cpu = 256,
       memory = 256,
       essential = true,
@@ -35,7 +35,7 @@ resource "aws_ecs_task_definition" "my_task_definition" {
 
 
 resource "aws_ecs_service" "my_ecs_service" {
-  name            = "nginx-service"
+  name            = "drupal-service"
   cluster         = aws_ecs_cluster.my_cluster.name
   task_definition = aws_ecs_task_definition.my_task_definition.family
 
@@ -46,7 +46,7 @@ resource "aws_ecs_service" "my_ecs_service" {
 
   load_balancer {
     target_group_arn = var.target_group_arn
-    container_name   = "nginx"
+    container_name   = "drupal"
     container_port   = 80
   }
 }
