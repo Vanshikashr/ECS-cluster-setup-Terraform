@@ -1,0 +1,16 @@
+**/.terraform/*
+
+*.terraform.lock.hcl
+*.terraform.tfstate.lock.info
+*.terraform
+*.terraform-plan*
+*.terraform.*
+*.txt
+
+*.tfstate
+*.tfstate.*
+*.swp
+
+
+crash.log
+
